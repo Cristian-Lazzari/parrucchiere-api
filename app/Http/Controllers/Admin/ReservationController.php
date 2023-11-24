@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Date;
 
 class ReservationController extends Controller
 {
@@ -12,8 +13,9 @@ class ReservationController extends Controller
    
      public function index()
      {
-         $reservations = Reservation::paginate(15);;
-         return view('admin.reservations.index', compact('reservations'));
+         $reservations = Reservation::paginate(15);
+         $dates = Date::all();
+         return view('admin.reservations.index', compact('reservations', 'dates'));
      }
   
 

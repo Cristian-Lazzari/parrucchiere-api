@@ -31,7 +31,7 @@ class DatesTableSeeder extends Seeder
                 $dayWeek = $dayWeek + 1;
             }else{
                 
-               $dayWeek = 0;
+               $dayWeek = 1;
             }
              Date::create([
                 'day_w'    => $dayWeek,
@@ -60,9 +60,7 @@ class DatesTableSeeder extends Seeder
         };
 
         if($lMounth>0){
-            for($cMonth; $cMonth <= 12; $cMonth++){
-
-                 
+            for($itop = $cMonth + 1; $cMonth < 12; $cMonth++){
 
                 if($cMonth + 1 == 2 && !(( $year %4 ) == 0)){
                     $mdMonth = 28;
@@ -112,7 +110,7 @@ class DatesTableSeeder extends Seeder
 
                     Date::create([
                        'day_w'    => $dayWeek,
-                       'month'    => $cMonth,
+                       'month'    => $itop,
                        'day'      => $i,
                        'time'     => '12:30',
                        'visible'  => true,
@@ -120,7 +118,7 @@ class DatesTableSeeder extends Seeder
                    ]);
                     Date::create([
                        'day_w'    => $dayWeek,
-                       'month'    => $cMonth,
+                       'month'    => $itop,
                        'day'      => $i,
                        'time'     => '13:00',
                        'visible'  => true,
@@ -128,7 +126,7 @@ class DatesTableSeeder extends Seeder
                    ]);
                     Date::create([
                        'day_w'    => $dayWeek,
-                       'month'    => $cMonth,
+                       'month'    => $itop,
                        'day'      => $i,
                        'time'     => '13:30',
                        'visible'  => true,

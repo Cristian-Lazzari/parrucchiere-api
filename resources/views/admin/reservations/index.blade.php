@@ -13,10 +13,9 @@
 
                     <th style="max-width:60px">NOME</th>
                     <th class="expire-mobile-s">TELEFONO</th>
-                    <th class="expire-mobile">MESSAGGIO</th>
-                    <th class="expire-mobile-s">N OSPITI</th>
+                    <th class="expire-mobile">SERVIZIO</th>
+                    <th class="expire-mobile-s">DATA</th>
                     <th class="expire-mobile-s">ORARIO</th>
-                    <th class="expire-mobile-s">GIORNO</th>
 
                     <th>STATUS</th>
 
@@ -29,14 +28,13 @@
                     <tr>
 
                         <td class="name-mobile">
-                            <a style="color:white; white-space:wrap" class="ts bs a-notlink badge bg-success rounded-pill " href="{{ route('admin.reservations.show', ['reservation' =>$reservation]) }}" > {{$reservation->name}}</a>
-                           
+                            <a style="color:white; white-space:wrap" class="ts bs a-notlink badge bg-success rounded-pill " href="{{ route('admin.reservations.show', ['reservation' =>$reservation]) }}" > {{$reservation->name}}</a>                
                         </td>
                         <td class="expire-mobile-s">{{$reservation->phone}}</td>
-                        <td class="expire-mobile-s">{{$reservation->message}}</td>
-                        <td class="expire-mobile">{{$reservation->n_person}}</td>
-                        <td class="expire-mobile-s">{{$reservation->date}}</td>
-                        <td class="expire-mobile-s">{{$reservation->time}}</td>
+                        <td class="expire-mobile-s">{{$reservation->service}}</td>
+                        <td class="expire-mobile">{{$dates[$reservation->date_id]->day}}</td>
+                        <td class="expire-mobile">{{$dates[$reservation->date_id]->time<}}</td>
+                       
                         <td>
                             @if($reservation->status)
 
