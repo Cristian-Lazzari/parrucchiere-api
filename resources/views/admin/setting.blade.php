@@ -45,10 +45,7 @@
     </form>
     <hr class="p-3">
     
-    
-    <a class="mybtn bs ts bg-warning" href="{{ route('admin.timeslot') }}">Gestisci orari asporto</a>
 
-    <a class="mybtn bs ts bg-warning" href="{{ route('admin.slot') }}">Gestisci orari tavoli</a>
 
 </div>
 

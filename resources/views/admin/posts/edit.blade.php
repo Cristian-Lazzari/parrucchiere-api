@@ -21,6 +21,20 @@
         </div>
     </div>
 
+    <div class="mb-3">
+        <label for="link" class="form-label">Instagram LINK</label>
+        <input
+            type="text"
+            class="form-control @error('link') is-invalid @enderror"
+            id="link"
+            name="link"
+            value="{{ old('link',$post->link) }}"
+        >
+        <div class="invalid-feedback">
+            @error('link') {{ $message }} @enderror
+        </div>
+    </div>
+
 
     <div class="input-group mb-3">
         <input type="file" class="form-control" id="image" name="image" accept="image/*">

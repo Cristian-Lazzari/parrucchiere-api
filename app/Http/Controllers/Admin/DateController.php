@@ -2,19 +2,46 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Date;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class DateController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function updatestatus($date_id)
+    {
+        $date = Date::find($date_id);
+        if ($date) {
+            $date->visible = !$date->visible; // Inverte lo stato corrente
+            $date->save();
+        }
+        return redirect()->back();
+    }
+    public function upmaxres($date_id)
+    {
+        $date = Date::find($date_id);
+        $date->max_res ++;
+        $date->save();
+        
+        return redirect()->back();
+    }
+    public function downmaxres($date_id)
+    {
+        $date = Date::find($date_id);
+        if($date->max_res > 0){
+
+            $date->max_res --;
+            $date->save();
+        }
+        
+        return redirect()->back();
+    }
+
     public function index()
     {
-        //
+        $dates = Date::paginate(100);
+
+        return view('admin.dates.index', compact('dates'));       
     }
 
     /**

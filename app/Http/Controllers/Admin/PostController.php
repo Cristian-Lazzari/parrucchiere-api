@@ -48,6 +48,7 @@ class PostController extends Controller
         
         $newpost->title         = $data['title'];
         $newpost->description   = $data['description'];
+        $newpost->link   = $data['link'];
         $newpost->save();
         
         $newpost->hashtags()->sync($data['tags'] ?? []);
@@ -101,6 +102,7 @@ class PostController extends Controller
         // aggiornare i dati nel db se validi
         $post->title         = $data['title'];
         $post->description   = $data['description'];  
+        $post->link   = $data['link'];  
         $post->update();
 
         // associare i hashtag

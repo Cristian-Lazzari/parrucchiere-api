@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Slot;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class SlotController extends Controller
+class ServiceController extends Controller
 {
     public function index() {
-        $slots = Slot::all();
+        $services = Service::all();
 
         return response()->json([
             'success' => true,
-            'results' => $slots,
+            'results' => $services,
         ]);
     }
+        
 }

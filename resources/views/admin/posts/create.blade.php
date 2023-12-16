@@ -6,7 +6,7 @@
     @csrf
 
     <div class="mb-3 nome_">
-        <label for="title" class="form-label">Nome Prodotto</label>
+        <label for="title" class="form-label">Titolo del Post</label>
         <input
             type="text"
             class="form-control @error('title') is-invalid @enderror"
@@ -16,6 +16,20 @@
         >
         <div class="invalid-feedback">
             @error('title') {{ $message }} @enderror
+        </div>
+    </div>
+
+    <div class="mb-3 link_">
+        <label for="link" class="form-label">Instagram LINK</label>
+        <input
+            type="text"
+            class="form-control @error('link') is-invalid @enderror"
+            id="link"
+            name="link"
+            value="{{ old('link') }}"
+        >
+        <div class="invalid-feedback">
+            @error('link') {{ $message }} @enderror
         </div>
     </div>
 
@@ -45,7 +59,7 @@
 
 
     <div class="mb-3 ingredienti_ ">
-        <h3>Hashtag</h3>
+        <h3>Hashtags</h3>
         @foreach($hashtags as $tag)
             <div class="mb-3 form-check">
                 <input

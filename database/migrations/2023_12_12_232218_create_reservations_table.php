@@ -13,9 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('date_id')->nullable(); 
+
+            $table->foreign('date_id')->references('id')->on('dates')->nullOnDelete();
             $table->string('name');
+            $table->string('service');
+            $table->string('phone');
+
+            $table->boolean('status');
+            $table->timestamps();
+
+            
         });
     }
 
@@ -26,6 +36,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::dropIfExists('reservations');
+        
     }
 };

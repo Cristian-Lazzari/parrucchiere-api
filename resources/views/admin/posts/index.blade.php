@@ -34,6 +34,7 @@
                     <th>TITOLO</th>
                     <th class="expire-mobile-s">IMMAGINE</th>
                     <th class="expire-mobile-s">DESCRIZIONE</th>
+                    <th class="expire-mobile-s">INSTAGRAM LINK</th>
  
                     <th class="expire-mobile">HASHTAG</th>
                     <th>
@@ -46,7 +47,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($posts as $post)
+                @foreach ($posts->reverse() as $post)
                     <tr>
                         <th class="expire-mobile">{{$post->id}}</th>
                         <td>
@@ -60,6 +61,7 @@
 
                         </td>
                         <td class="expire-mobile-s">{{$post->description}}</td>
+                        <td class="expire-mobile-s">{{$post->link}}</td>
                  
                         <td class="expire-mobile">
                             @foreach ($post->hashtags as $tag)

@@ -58,7 +58,10 @@ td{
     }
 
 }
-
+.btnfrom{
+    display: flex !important;
+    gap: 3px
+}
 .toggle-border {
     width: 65px;
     border: 2px solid #f0ebeb;

@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Date extends Model
 {
     use HasFactory;
-    public function reservations()
-    {
-        return $this->hasMany(Reservation::class);
-    }
+    
+    public $timestamps = false;
+
+  
 }

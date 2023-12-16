@@ -5,8 +5,10 @@
 
 
   
-
-    <h1>PRENOTAZIONI TAVOLI</h1>
+    <div class="row">
+        <h1 >PRENOTAZIONI TAVOLI</h1>
+        <a  href="{{ route('admin.dates.index') }}" class="btn btn-warning">Gestione date</a>
+    </div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -24,7 +26,7 @@
                 </tr>
             </thead>
             <tbody class="body-cat">
-                @foreach ($reservations->reverse() as $reservation)
+                @foreach ($reservations as $reservation)
                     <tr>
 
                         <td class="name-mobile">
@@ -33,7 +35,7 @@
                         <td class="expire-mobile-s">{{$reservation->phone}}</td>
                         <td class="expire-mobile-s">{{$reservation->service}}</td>
                         <td class="expire-mobile">{{$dates[$reservation->date_id]->day}}</td>
-                        <td class="expire-mobile">{{$dates[$reservation->date_id]->time<}}</td>
+                        <td class="expire-mobile">{{$dates[$reservation->date_id]->time}}</td>
                        
                         <td>
                             @if($reservation->status)

@@ -15,11 +15,12 @@
             <h3>Hashtags: </h3>
             <div style="display: flex; gap: .2em; flex-wrap: wrap">
                 @foreach ($post->hashtags as $tag)
-                <span>{{ $tag->tag }}</span>  
+                <span class="badge rounded-pill bg-primary">#{{ $tag->tag }}</span>  
                 @endforeach
                 
             </div>
-            <h3>Description: <span class="badge rounded-pill bg-primary">{{ $post->description }}</span> </h3>
+            <h3>Descrizione: <div class="">{{ $post->description }}</div> </h3>
+            <h3>Instagram Link: <span class="badge rounded-pill bg-secondary">{{ $post->link }}</span> </h3>
             <h3>Data ultima modifica: <span class="badge rounded-pill bg-warning">{{ $post->created_at }}</span> </h3>
             <h3>Data ultima modifica: <span class="badge rounded-pill bg-danger">{{ $post->updated_at }}</span> </h3>
         </div>

@@ -13,16 +13,17 @@ class ReservationController extends Controller
    
      public function index()
      {
-         $reservations = Reservation::paginate(15);
+         $reservations = Reservation::orderBy('created_at', 'desc')->paginate(15);
          $dates = Date::all();
          return view('admin.reservations.index', compact('reservations', 'dates'));
-     }
-  
-
-     public function show($id)
-     {
+        }
+        
+        
+        public function show($id)
+        {
+         $dates = Date::all();
          $reservation = Reservation::where('id', $id)->firstOrFail();
-         return view('admin.reservations.show', compact('reservation'));
+         return view('admin.reservations.show', compact('reservation', 'dates'));
      }
          
     public function updatestatus($reservation_id)

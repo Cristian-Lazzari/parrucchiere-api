@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CategoryController extends Controller
+class PostController extends Controller
 {
     public function index() {
-        $categories = Category::all();
+        $posts = Post::with('hashtags')->paginate(100);
 
         return response()->json([
             'success' => true,
-            'results' => $categories,
+            'results' => $posts,
         ]);
     }
 }

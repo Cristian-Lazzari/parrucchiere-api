@@ -20,7 +20,6 @@ class Project extends Model
         return $this->slug;
     }
 
-    public $timestamps = false;
     //protected $fillable = ['nome', 'link', 'link_github', 'url_image', 'url_gif', 'description'];
 
     public function category() {

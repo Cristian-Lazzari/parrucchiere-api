@@ -16,20 +16,15 @@ return new class extends Migration
         Schema::create('dates', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('reservation_id')->nullable(); 
 
-            // definire la colonna come chiave esterna
-            $table->foreign('reservation_id')->references('id')->on('reservations')->nullOnDelete(); //->onDelete('cascade');
-
-
-
-            $table->string('month');
-            $table->string('day');
-            $table->string('day_w');
+            $table->smallInteger('year');
+            $table->tinyInteger('month');
+            $table->tinyInteger('day');
+            $table->tinyInteger('day_w');
             $table->string('time');
             $table->boolean('visible');
             $table->tinyInteger('max_res');
-            $table->timestamps();
+
         });
     }
 

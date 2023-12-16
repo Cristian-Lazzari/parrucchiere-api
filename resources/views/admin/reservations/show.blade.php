@@ -10,20 +10,20 @@
             <h1 style="text-transform:uppercase " >{{$reservation->name}}</h1>
           
             <h3>Id: <span class="badge rounded-pill bg-secondary">{{ $reservation->id}}</span> </h3>
-            <h3>Nome: <span class="badge rounded-pill bg-secondary">{{ $reservation->name}}</span> </h3>
-            <h3>Telefono: <span class="badge rounded-pill bg-secondary">{{ $reservation->phone}}</span> </h3>
-            <h3>Giorno: <span class="badge rounded-pill bg-secondary">{{ $reservation->date}}</span> </h3>
-            <h3>Orario: <span class="badge rounded-pill bg-secondary">{{ $reservation->time}}</span> </h3>
-            <h3>Nuemro persone: <span class="badge rounded-pill bg-success">{{ $reservation->n_person}}</span> </h3>
-            <h3>Messaggio: <span class="badge rounded-pill bg-secondary">{{ $reservation->message}}</span> </h3>
+            <h3>Nome: <span class="badge rounded-pill bg-primary">{{ $reservation->name}}</span> </h3>
+            <h3>Telefono: <span class="badge rounded-pill bg-success">{{ $reservation->phone}}</span> </h3>
+            <h3>Data: <span class="badge rounded-pill bg-warning">{{ $dates[$reservation->date_id]->day}}/{{ $dates[$reservation->date_id]->month}}/{{ $dates[$reservation->date_id]->year}}</span> </h3>
+            <h3>Orario: <span class="badge rounded-pill bg-danger">{{ $dates[$reservation->date_id]->time}}</span> </h3>
+            
+           
             <h3>Status:  
             @if($reservation->status)
 
-                <span class="badge bg-success">Completato</span> 
+                <span class="badge bg-success">Confermata</span> 
             
             @else
             
-                <span class="badge bg-danger">In Elaborazione</span> 
+                <span class="badge bg-danger">Da confermare</span> 
             
             @endif
             </h3>
